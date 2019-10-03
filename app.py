@@ -1,7 +1,7 @@
 def tic_tac_toe():
     board = [1,2,3,4,5,6,7,8,9]
     end = False
-    win_commbinations = ((0, 1, 2), (3, 4, 5), (6, 7, 8), (0, 3, 6), (1, 4, 7), (2, 5, 8), (0, 4, 8), (2, 4, 6))
+    win_combinations = ((0, 1, 2), (3, 4, 5), (6, 7, 8), (0, 3, 6), (1, 4, 7), (2, 5, 8), (0, 4, 8), (2, 4, 6))
     ##win_combinations = (1,2,3), (4,5,6), (7,8,9), (1,4,7), (2,5,8), (3,6,9), (1,5,9), (3,5,7))
 
     def draw():
@@ -12,10 +12,56 @@ def tic_tac_toe():
 
     def p1():
         n = choose_number()
-        if board[n] == "x" or "X" or board[n]== "o" or "O":
+        if board[n] == "X" or board[n] == "O":
             print("You can't go there. Try again")
             p1()
         else:
             board[n] = "X"
 
     def p2():
+        n = choose_number()
+        if board[n] == "X" or board[n] == "0":
+            print("You can't go there. Try again")
+            p2()
+        else:
+            board[n] = "O"
+
+    def check_board():
+        count = 0
+        for a in win_combinations:
+            if board[a[0]] == board[a[1]] ==board[a[2]] =="X":
+                print("Player 1 wins!\n")
+                print("Congratulations!\n")
+                return True
+
+            if board[a[0]] == board[a[1]] == board[a[2]] == "O"
+                print("Player 2 wins!\n")
+                print("Congratulations!\n")
+
+        for a in range(9):
+            if board[a] == "X" or board[a] == "O"
+                count += 1
+            if count == 9:
+                print("The game ends in a Tie\n")
+                return True
+
+    while not end:
+        draw()
+        end = check_board()
+        if end = True:
+            break
+        print("Player 1 choose where to place an X")
+        p1()
+        print()
+        draw()
+        end = check_board()
+        if end == True:
+            break
+        print("Player 2 choose where to place an O")
+        p2()
+        print()
+
+    if input("play again (y/n)\n") == "y"
+        print()
+        tic_tac_toe
+tic_tac_toe
